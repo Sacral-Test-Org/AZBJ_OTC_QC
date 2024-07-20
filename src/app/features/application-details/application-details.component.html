@@ -1,0 +1,57 @@
+<div class="application-details">
+  <h2>Application Details</h2>
+  <div class="form-group">
+    <label for="applicationNumber">Application Number:</label>
+    <input type="text" id="applicationNumber" [value]="application.applicationNumber" readonly />
+  </div>
+  <div class="form-group">
+    <label for="applicationStatus">Application Status:</label>
+    <input type="text" id="applicationStatus" [value]="application.applicationStatus" readonly />
+  </div>
+  <div class="form-group">
+    <label for="receiptNumber">Receipt Number:</label>
+    <input type="text" id="receiptNumber" [value]="application.receiptNumber" readonly />
+  </div>
+  <div class="form-group">
+    <label for="receiptDate">Receipt Date:</label>
+    <input type="text" id="receiptDate" [value]="application.receiptDate" readonly />
+  </div>
+  <div class="form-group">
+    <label for="laName">LA Name:</label>
+    <input type="text" id="laName" [value]="application.laName" readonly />
+  </div>
+  <div class="form-group">
+    <label for="phName">PH Name:</label>
+    <input type="text" id="phName" [value]="application.phName" readonly />
+  </div>
+  <div class="form-group">
+    <label for="changeDescription">Change Description:</label>
+    <input type="text" id="changeDescription" [value]="application.changeDescription" readonly />
+  </div>
+  <div class="form-group">
+    <label for="proposalNumber">Proposal Number:</label>
+    <input type="text" id="proposalNumber" [value]="application.proposalNumber" readonly />
+  </div>
+  <div class="form-group">
+    <label for="partnerName">Partner Name:</label>
+    <input type="text" id="partnerName" [value]="application.partnerName" readonly />
+  </div>
+  <div class="form-group">
+    <label for="documentStatus">Document Status:</label>
+    <input type="text" id="documentStatus" [value]="application.documentStatus" readonly />
+  </div>
+  <div class="form-group">
+    <label for="pendingDocuments">Pending Documents:</label>
+    <input type="text" id="pendingDocuments" [value]="application.pendingDocuments" readonly />
+  </div>
+  <div class="form-group">
+    <label for="checked">Checked:</label>
+    <input type="checkbox" id="checked" [(ngModel)]="application.checked" />
+  </div>
+  <button (click)="navigateToProposalDetails()">Hide</button>
+</div>
+
+<div *ngIf="showProposalDetails" class="proposal-details">
+  <h2>Proposal Number Details</h2>
+  <!-- Proposal number details content goes here -->
+</div>

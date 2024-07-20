@@ -1,0 +1,46 @@
+<div class="submit-application-container">
+  <h2>Submit Application Form</h2>
+  <form (ngSubmit)="onSubmit()" #applicationForm="ngForm">
+    <div class="form-group">
+      <label for="applicationNumber">Application Number</label>
+      <input type="text" id="applicationNumber" name="applicationNumber" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="ageProof">Age Proof</label>
+      <input type="file" id="ageProof" name="ageProof" (change)="onFileChange($event, 'ageProof')" required>
+    </div>
+
+    <div class="form-group">
+      <label for="identityProof">Identity Proof</label>
+      <input type="file" id="identityProof" name="identityProof" (change)="onFileChange($event, 'identityProof')" required>
+    </div>
+
+    <div class="form-group">
+      <label for="incomeProof">Income Proof</label>
+      <input type="file" id="incomeProof" name="incomeProof" (change)="onFileChange($event, 'incomeProof')" required>
+    </div>
+
+    <div class="form-group">
+      <label for="permanentAddressProof">Permanent Address Proof</label>
+      <input type="file" id="permanentAddressProof" name="permanentAddressProof" (change)="onFileChange($event, 'permanentAddressProof')" required>
+    </div>
+
+    <div class="form-group">
+      <label for="currentAddressProof">Current Address Proof</label>
+      <input type="file" id="currentAddressProof" name="currentAddressProof" (change)="onFileChange($event, 'currentAddressProof')" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="!applicationForm.form.valid">Submit</button>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</div>

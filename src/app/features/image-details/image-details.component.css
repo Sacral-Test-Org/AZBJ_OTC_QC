@@ -1,0 +1,56 @@
+/* Styles for Image Details Management UI */
+
+/* Styles for input fields */
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles for buttons */
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Styles for View Image button */
+button.view-image {
+  background-color: #008CBA; /* Blue */
+}
+
+/* Styles for Hide button */
+button.hide-details {
+  background-color: #f44336; /* Red */
+}
+
+/* Container for image details */
+.image-details-container {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+/* Styles for individual image detail item */
+.image-detail-item {
+  margin-bottom: 12px;
+}
+
+/* Styles for labels */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}

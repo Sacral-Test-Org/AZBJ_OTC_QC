@@ -1,0 +1,108 @@
+/* Styles for the PAN details form */
+
+/* Centered prompts for user guidance */
+label {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Input fields styling */
+input[type="text"], input[type="date"] {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  width: 80%;
+  text-transform: uppercase;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Highlight address field in yellow if edited */
+input.edited {
+  background-color: yellow;
+}
+
+/* Button styling */
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Radio group styling */
+.radio-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.radio-group label {
+  margin-right: 10px;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  margin-right: 10px;
+}
+
+/* List item styling */
+.list-item {
+  display: none;
+}
+
+/* Scrollbar styling */
+.scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* General form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar styling */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.toolbar .date-user-info {
+  font-weight: bold;
+}
+
+/* Date of Birth input field styling */
+input[type="date"] {
+  text-transform: uppercase;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

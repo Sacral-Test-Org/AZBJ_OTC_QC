@@ -1,0 +1,36 @@
+<div class="image-details-container">
+  <form>
+    <div>
+      <label for="imagePath">Image Path:</label>
+      <input type="text" id="imagePath" [(ngModel)]="imageDetails.imagePath" name="imagePath" />
+    </div>
+    <div>
+      <label for="proposalNumber">Proposal Number:</label>
+      <input type="text" id="proposalNumber" [(ngModel)]="imageDetails.proposalNumber" name="proposalNumber" />
+    </div>
+    <div>
+      <label for="applicationNumber">Application Number:</label>
+      <input type="text" id="applicationNumber" [(ngModel)]="imageDetails.applicationNumber" name="applicationNumber" />
+    </div>
+    <div>
+      <label for="imageName">Image Name:</label>
+      <input type="text" id="imageName" [(ngModel)]="imageDetails.imageName" name="imageName" />
+    </div>
+    <div>
+      <label for="imageScanTime">Image Scan Time:</label>
+      <input type="text" id="imageScanTime" [(ngModel)]="imageDetails.imageScanTime" name="imageScanTime" />
+    </div>
+    <div>
+      <label for="imageSize">Image Size (in KB):</label>
+      <input type="text" id="imageSize" [(ngModel)]="imageDetails.imageSize" name="imageSize" />
+    </div>
+    <div>
+      <label for="numberOfPages">Number of Pages:</label>
+      <input type="text" id="numberOfPages" [(ngModel)]="imageDetails.numberOfPages" name="numberOfPages" />
+    </div>
+    <div>
+      <button type="button" (click)="onViewImageClick()">View Image</button>
+      <button type="button" (click)="onHideButtonClick()">Hide</button>
+    </div>
+  </form>
+</div>

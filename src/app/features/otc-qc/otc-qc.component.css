@@ -1,0 +1,314 @@
+/* CSS for the OTC QC feature UI */
+
+/* Class to hide elements */
+.hidden {
+  display: none;
+}
+
+/* Class to show elements */
+.visible {
+  display: block;
+}
+
+/* Style for the read-only test number field */
+.test-number-readonly {
+  background-color: gray;
+  color: black;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 10px 0;
+}
+
+/* Styles for Image Details fields and buttons */
+.image-details input {
+  display: block;
+  margin: 5px 0;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.image-details button {
+  margin: 5px 0;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.image-details button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for readonly fields */
+.readonly-field {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+/* Styles for action buttons */
+.action-button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.action-button:hover {
+  background-color: #218838;
+}
+
+/* Layout styles for the proposal details form */
+.proposal-details-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.proposal-details-form .form-group {
+  flex: 1 1 45%;
+  margin-bottom: 15px;
+}
+
+/* Styles for the dropdown field */
+.dropdown-field {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styles for the underwriter comments section */
+.uw-comments {
+  margin: 20px 0;
+}
+
+.uw-comments .comment {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.uw-comments .comment .user-id,
+.uw-comments .comment .timestamp {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.uw-comments .comment .comment-text {
+  margin-top: 5px;
+}
+
+.uw-comments .add-comment {
+  margin-top: 10px;
+}
+
+.uw-comments .add-comment textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.uw-comments .add-comment button {
+  margin-top: 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.uw-comments .add-comment button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the refresh button */
+#refreshButton {
+  padding: 10px 15px;
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+#refreshButton:hover {
+  background-color: #e0a800;
+}
+
+/* Styles for the comments section */
+#commentsSection {
+  margin: 20px 0;
+}
+
+#commentsList {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+/* Styles for the editor window component */
+.editor-window {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+
+/* Styles for the comments field */
+.comments-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+/* Styles for the multiline text area */
+.text-area {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+/* Styles for the checkbox */
+.checkbox {
+  margin: 10px 0;
+}
+
+/* Styles for the Add Comments and Exit buttons */
+.add-comments-button,
+.exit-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.add-comments-button:hover,
+.exit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for search input fields */
+.search-input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styles for search results grid */
+.results-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.results-grid th,
+.results-grid td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.results-grid th {
+  background-color: #f0f0f0;
+}
+
+/* Styles for the Partner Type selection field */
+.partner-type-field {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styles for the dropdown list */
+.dropdown-list {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styles for the Bypass Bank Details checkbox */
+.bypass-bank-details {
+  margin: 10px 0;
+}
+
+/* Styles for the disabled state of the account details fields */
+.account-details-disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Styles for the status dropdown */
+.status-dropdown {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-family: Tahoma, sans-serif;
+}
+
+/* Styles for the search input fields and results grid */
+.search-input-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-input-fields .input-group {
+  flex: 1 1 45%;
+  margin-bottom: 15px;
+}
+
+.results-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.results-grid th,
+.results-grid td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.results-grid th {
+  background-color: #f0f0f0;
+}

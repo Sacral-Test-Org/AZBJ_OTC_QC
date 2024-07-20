@@ -1,0 +1,181 @@
+<div class="otc-qc-container">
+  <h1>OTC QC Feature</h1>
+  <div class="form-group">
+    <label for="applicationNo">Application Number:</label>
+    <input type="text" id="applicationNo" [(ngModel)]="applicationNo" />
+  </div>
+  <div class="form-group">
+    <button id="validateButton" (click)="validateApplication()">Validate</button>
+  </div>
+  <div id="validationResults">
+    <div *ngIf="message" class="message">{{ message }}</div>
+    <div *ngIf="validationResults">
+      <div>OTC Eligibility: {{ validationResults.otcEligible }}</div>
+      <div>SPG Case Status: {{ validationResults.spgCase }}</div>
+      <div>KYC Flag: {{ validationResults.kycFlag }}</div>
+      <!-- Add other flags and statuses here -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="testNumber">Test Number:</label>
+    <input type="text" id="testNumber" [value]="testNumber" readonly style="background-color: gray; color: black;" />
+  </div>
+  <div class="form-group">
+    <label for="docReceived">Doc Received:</label>
+    <select id="docReceived" [(ngModel)]="docReceivedStatus" (change)="handleDocumentReceivedStatus($event)">
+      <option *ngFor="let status of docReceivedOptions" [value]="status">{{ status }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="imageDetails">Image Details:</label>
+    <div *ngFor="let image of imageDetails; let i = index">
+      <input type="text" placeholder="Image Path" [(ngModel)]="image.path" />
+      <input type="text" placeholder="Proposal Number" [(ngModel)]="image.proposalNumber" />
+      <input type="text" placeholder="Application Number" [(ngModel)]="image.applicationNumber" />
+      <input type="text" placeholder="Image Name" [(ngModel)]="image.name" />
+      <input type="text" placeholder="Image Scan Time" [(ngModel)]="image.scanTime" />
+      <input type="text" placeholder="Image Size (KB)" [(ngModel)]="image.size" />
+      <input type="text" placeholder="Number of Pages" [(ngModel)]="image.pages" />
+      <button (click)="viewImage(i)">View Image</button>
+      <button (click)="hideImageDetails(i)">Hide</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="form-group">
+    <input type="checkbox" id="deqcDisplayCheckbox" (change)="handleCheckboxChange($event)" />
+    <label for="deqcDisplayCheckbox">DEQC Display</label>
+  </div>
+  <div class="form-group">
+    <button id="linkSaveButton" [disabled]="!isLinkSaveEnabled">Link/Save</button>
+    <button id="viewDocsButton" [disabled]="!isViewDocsEnabled">View Docs</button>
+    <button id="uploadDocsButton" [disabled]="!isUploadDocsEnabled">Upload Docs</button>
+    <button id="qcButton" [disabled]="!isQcEnabled">QC</button>
+    <button id="rejectButton" [disabled]="!isRejectEnabled">Reject</button>
+  </div>
+  <div class="form-group">
+    <app-proposal-details></app-proposal-details>
+  </div>
+  <div class="form-group">
+    <label for="referToSupervisor">Refer to Supervisor:</label>
+    <select id="referToSupervisor" [(ngModel)]="referToSupervisor">
+      <option value="No">No</option>
+      <option value="Yes">Yes</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button id="proposalFormButton" (click)="onProposalFormButtonClick()">Proposal Form</button>
+  </div>
+  <div class="form-group">
+    <button id="downloadKycDocButton" (click)="downloadKycDoc()">DOWNLOAD KYC DOC</button>
+  </div>
+  <div class="form-group">
+    <input type="checkbox" id="teleVideoMerApproved" [(ngModel)]="teleVideoMerApproved" (change)="validateTeleVideoMerSelection()" />
+    <label for="teleVideoMerApproved">Tele/Video Mer (Approved)</label>
+    <div *ngIf="warningMessage" class="warning">{{ warningMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  <div class="form-group">
+    <app-uw-comments></app-uw-comments>
+  </div>
+  <div class="form-group">
+    <button id="refreshButton" (click)="refreshComments()">Refresh</button>
+    <div id="commentsSection">
+      <ul id="commentsList">
+        <li *ngFor="let comment of comments">
+          <div>User ID: {{ comment.userId }}</div>
+          <div>Date & Time: {{ comment.dateTime }}</div>
+          <div>UW Comments: {{ comment.text }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <div (dblclick)="handleDoubleClick()">
+      <app-editor-window></app-editor-window>
+    </div>
+  </div>
+  <div class="form-group">
+    <button id="addCommentsButton" (click)="onAddCommentsButtonClick()">Add Comments</button>
+  </div>
+  <div class="form-group">
+    <button id="rejectButton" (click)="onRejectButtonClick()">Reject</button>
+  </div>
+  <div class="form-group">
+    <app-comments></app-comments>
+  </div>
+  <div class="form-group">
+    <button id="exitButton" (click)="onExitButtonClick()">Exit</button>
+  </div>
+  <div class="form-group">
+    <button id="clearButton" (click)="clearForm()">Clear</button>
+  </div>
+  <div class="form-group">
+    <button id="uwCommentsButton" (click)="onUwCommentsButtonPress()">UW Comments</button>
+    <div *ngIf="isReasonLinkVisible">
+      <input type="text" #reasonLinkInput />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="partnerType">Partner Type:</label>
+    <select id="partnerType" [(ngModel)]="partnerType">
+      <option *ngFor="let type of partnerTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button id="viewDocsButton" (click)="onViewDocsClick()">View Docs</button>
+  </div>
+  <div class="form-group">
+    <textarea id="commentsField" readonly (dblclick)="onCommentsFieldDoubleClick()" maxlength="1000"></textarea>
+  </div>
+  <div class="form-group">
+    <button id="submitCommentButton" (click)="submitComment()">Submit Comment</button>
+  </div>
+  <div class="form-group">
+    <button id="qcButton" (click)="onQcButtonClick()">QC</button>
+  </div>
+  <div class="form-group">
+    <label for="fromDate">From Date:</label>
+    <input type="date" id="fromDate" [(ngModel)]="fromDate" />
+  </div>
+  <div class="form-group">
+    <label for="toDate">To Date:</label>
+    <input type="date" id="toDate" [(ngModel)]="toDate" (input)="validateToDate()" />
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  <div class="form-group">
+    <button id="searchButton" (click)="handleSearch()">Search</button>
+  </div>
+  <div class="form-group">
+    <table id="resultsTable">
+      <!-- Table headers and rows go here -->
+    </table>
+  </div>
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <select id="status" [(ngModel)]="status">
+      <option *ngFor="let statusOption of statusOptions" [value]="statusOption">{{ statusOption }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="partnerType">Partner Type:</label>
+    <input type="text" id="partnerType" [(ngModel)]="partnerType" />
+    <div *ngIf="isPartnerTypeEmpty" class="warning">Please enter partner.</div>
+  </div>
+  <div class="form-group">
+    <button id="viewPreviousPolicyButton" (click)="onViewPreviousPolicyClick()">View Previous Policy Details</button>
+  </div>
+  <div class="form-group">
+    <label for="phNoPanLov">PH_NO_PAN_LOV:</label>
+    <select id="phNoPanLov" (change)="onPhNoPanLovChange($event)">
+      <!-- Options go here -->
+    </select>
+    <div *ngIf="phNoPanLovErrorMessage" class="error">{{ phNoPanLovErrorMessage }}</div>
+  </div>
+  <div class="form-group">
+    <div *ngIf="panCardVerificationStatus === 'N'" class="error">
+      PAN card has been received but not verified. Please raise the FRAR again.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="comments-section">
+  <label>
+    <input type="checkbox" id="enableComments" (change)="toggleComments($event)">
+    Click to add Comments
+  </label>
+  <br>
+  <textarea id="commentsTextArea" rows="4" cols="50" [disabled]="!isCommentsEnabled"></textarea>
+  <br>
+  <button (click)="addComment()" [disabled]="!isCommentsEnabled">Add Comments</button>
+  <button (click)="exitComments()">Exit</button>
+</div>

@@ -1,0 +1,112 @@
+<div class="pan-details-form">
+  <div class="toolbar">
+    <span class="current-date">{{ currentDate }}</span>
+    <span class="user-info">{{ userInfo }}</span>
+    <button (click)="exitForm()">Exit</button>
+  </div>
+
+  <div class="form-group">
+    <label for="panNumber">PAN Number</label>
+    <input type="text" id="panNumber" [(ngModel)]="panDetails.panNumber" (input)="toUpperCase($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="panStatus">PAN Status</label>
+    <input type="text" id="panStatus" [(ngModel)]="panDetails.panStatus" />
+  </div>
+
+  <div class="form-group">
+    <label for="nameMatch">Name Match</label>
+    <input type="text" id="nameMatch" [(ngModel)]="panDetails.nameMatch" />
+  </div>
+
+  <div class="form-group">
+    <label for="dobMatch">Date of Birth (DOB) Match</label>
+    <input type="text" id="dobMatch" [(ngModel)]="panDetails.dobMatch" />
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" id="address" [(ngModel)]="panDetails.address" [ngClass]="{'edited': isAddressEdited}" />
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" [(ngModel)]="panDetails.firstName" (input)="toUpperCase($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input type="text" id="middleName" [(ngModel)]="panDetails.middleName" (input)="toUpperCase($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" [(ngModel)]="panDetails.lastName" (input)="toUpperCase($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="dob">Date of Birth (DOB)</label>
+    <input type="text" id="dob" [(ngModel)]="panDetails.dob" (input)="toUpperCase($event)" placeholder="DD/MM/RRRR" />
+  </div>
+
+  <div class="form-group">
+    <label for="partnerType">Partner Type</label>
+    <select id="partnerType" [(ngModel)]="panDetails.partnerType">
+      <option *ngFor="let type of partnerTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="panNotAvailable">PAN Card not Available</label>
+    <input type="checkbox" id="panNotAvailable" [(ngModel)]="panDetails.panNotAvailable" (change)="togglePanFields()" />
+  </div>
+
+  <div class="form-group" *ngIf="panDetails.panNotAvailable">
+    <label for="phNoPanLov">Select PAN Card Option</label>
+    <select id="phNoPanLov" [(ngModel)]="panDetails.phNoPanLov">
+      <option *ngFor="let option of panOptions" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="panCard">PAN Card</label>
+    <input type="text" id="panCard" [(ngModel)]="panDetails.panCard" [disabled]="panDetails.panNotAvailable" (input)="toUpperCase($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="panStatus">PAN Status</label>
+    <input type="text" id="panStatus" [(ngModel)]="panDetails.panStatus" />
+  </div>
+
+  <div class="form-group">
+    <label for="phoneNumbers">Phone Numbers</label>
+    <input type="text" id="phoneNumbers" [(ngModel)]="panDetails.phoneNumbers" disabled hidden />
+  </div>
+
+  <div class="form-group">
+    <label for="rrbBankAccount">RRB Bank Account</label>
+    <input type="checkbox" id="rrbBankAccount" [(ngModel)]="panDetails.rrbBankAccount" disabled hidden />
+  </div>
+
+  <div class="form-group">
+    <button (click)="validatePanDetails()">Validate PAN Details</button>
+  </div>
+
+  <div class="form-group">
+    <button (click)="saveBankDetails()">Save Bank Details</button>
+  </div>
+
+  <div class="form-group">
+    <button (click)="viewPreviousPolicyDetails()">View Previous Policy PAN Details</button>
+  </div>
+
+  <div class="scrollbar">
+    <div *ngFor="let record of displayedRecords">
+      <div>{{ record.panNumber }}</div>
+      <div>{{ record.panStatus }}</div>
+      <div>{{ record.nameMatch }}</div>
+      <div>{{ record.dobMatch }}</div>
+    </div>
+  </div>
+</div>

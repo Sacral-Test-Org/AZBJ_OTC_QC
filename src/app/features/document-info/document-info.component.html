@@ -1,0 +1,30 @@
+<div class="document-info">
+  <h2>Document Information</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Document Name</th>
+        <th>Document Type</th>
+        <th>AML Document Type</th>
+        <th>Proof Type</th>
+        <th>Request Code</th>
+        <th>Document Received Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let document of documents">
+        <td>{{ document.name }}</td>
+        <td>{{ document.type }}</td>
+        <td>{{ document.amlType }}</td>
+        <td>{{ document.proofType }}</td>
+        <td>{{ document.requestCode }}</td>
+        <td>
+          <select [(ngModel)]="document.receivedStatus">
+            <option *ngFor="let status of receivedStatusOptions" [value]="status">{{ status }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="onViewAllDocumentsClick()">View All Documents</button>
+</div>

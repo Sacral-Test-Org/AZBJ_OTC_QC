@@ -1,0 +1,62 @@
+/* Styles for the application details component */
+
+.application-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.application-details-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.application-details-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.application-details-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.application-details-form input[type="text"],
+.application-details-form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.application-details-form input[readonly] {
+  background-color: #e9ecef;
+}
+
+.application-details-form .checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.application-details-form .checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.application-details-form .checkbox-container label {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .application-details-form {
+    grid-template-columns: 1fr;
+  }
+}
